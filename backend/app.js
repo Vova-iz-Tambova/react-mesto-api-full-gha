@@ -7,6 +7,7 @@ const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('cors');
 
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -17,6 +18,7 @@ const apiLimiter = rateLimit({
 });
 
 const app = express();
+app.use(cors());
 app.use(requestLogger);
 app.use(express.json());
 app.use(helmet());
@@ -24,6 +26,13 @@ app.use(helmet());
 app.use(apiLimiter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+//   next();
+// });
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({

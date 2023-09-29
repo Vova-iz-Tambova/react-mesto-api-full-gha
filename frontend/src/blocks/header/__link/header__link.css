@@ -1,0 +1,9 @@
+.header__link {
+color: #a9a9a9;
+}
+
+@media screen and (max-width: 968px) {
+  .header__link {
+    font-size: 14px;
+  }
+}

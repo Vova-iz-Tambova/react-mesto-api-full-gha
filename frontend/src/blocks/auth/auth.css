@@ -1,0 +1,16 @@
+.auth {
+  min-width: 358px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: normal;
+}
+
+@media screen and (max-width: 968px) {
+  .auth {
+    min-width: 260px;
+  }
+}
