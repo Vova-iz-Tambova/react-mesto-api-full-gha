@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { rateLimit } = require('express-rate-limit');
 const { errors, celebrate, Joi } = require('celebrate');
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('cors');
 
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -26,13 +26,6 @@ app.use(helmet());
 app.use(apiLimiter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Headers', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
-//   next();
-// });
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
