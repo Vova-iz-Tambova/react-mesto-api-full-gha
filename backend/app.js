@@ -66,8 +66,8 @@ app.use((err, req, res, next) => {
       message: status === 500
         ? 'На сервере произошла ошибка'
         : message,
-    })
-    .catch(next);
+    });
+  next();
 });
 
 app.listen(3000);

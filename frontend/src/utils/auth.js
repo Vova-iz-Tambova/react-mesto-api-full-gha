@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000'
+export const BASE_URL = 'http://51.250.75.28:3000'
 
 function checkResponse(res) {
   if (res.ok) {
