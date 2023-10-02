@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.75.28
+IP 51.250.75.28
 
 Frontend https://mesto69.nomoredomainsrocks.ru
 
