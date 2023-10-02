@@ -58,10 +58,10 @@ function App() {
         .then(([info, cards]) => {
           setCurrentUser(info)
           setCards(cards)
+          setEmail(info.email)
         }).catch(console.error)
       navigate('/')
-    }
-  }, [loggedIn, navigate])
+    }}, [loggedIn, navigate])
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i === currentUser._id)
@@ -121,7 +121,13 @@ function App() {
           <Route path='*' element={<Navigate to={loggedIn ? '/' : '/sign-in'} />} />
           <Route path='/' element={
             <ProtectedRoute loggedIn={loggedIn}>
-              <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} email={email} link={'/sign-in'} text={'Выйти'} />
+              <Header loggedIn={loggedIn}
+                setLoggedIn={setLoggedIn}
+                setCurrentUser={setCurrentUser}
+                setCards={setCards}
+                email={email}
+                link={'/sign-in'}
+                text={'Выйти'} />
               <Main
                 onEditAvatar={handleEditAvatarClick}
                 onEditProfile={handleEditProfileClick}

@@ -26,7 +26,7 @@ function Login(props) {
         .then((res) => {
           if (res) {
             props.setLoggedIn(true)
-            props.setEmail(res.data.email)
+            props.setEmail(res.email)
           }
         })
         .catch((err) => {

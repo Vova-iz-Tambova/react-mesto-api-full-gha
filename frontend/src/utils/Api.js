@@ -76,7 +76,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://51.250.75.28:3000',
+  baseUrl: 'http://mesto-69.nomoredomainsrocks.ru',
   headers: {
     authorization: `Bearer ${localStorage.getItem("jwt")}`,
     'Content-Type': 'application/json'
