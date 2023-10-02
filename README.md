@@ -11,6 +11,6 @@
 
 IP-адрес 51.250.75.28
 
-Frontend http://mesto69.nomoredomainsrocks.ru
+Frontend https://mesto69.nomoredomainsrocks.ru
 
-Backend http://mesto-69.nomoredomainsrocks.ru
+Backend https://mesto-69.nomoredomainsrocks.ru
