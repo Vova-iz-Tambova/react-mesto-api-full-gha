@@ -21,7 +21,7 @@ function Login(props) {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt")
-    if (jwt) {
+    if (jwt || jwt === undefined) {
       checkToken(jwt)
         .then((res) => {
           if (res) {
